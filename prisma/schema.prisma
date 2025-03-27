@@ -26,7 +26,7 @@ model Book {
   achievement String?  
   category    String
   reviewsRel  Review[]  
-  userId      String   
+  userId      String   @db.ObjectId
   user        User      @relation(fields: [userId], references: [id])
 }
 
@@ -45,6 +45,6 @@ model Review {
   rating     Float?   
   message    String?  
   timestamp  DateTime  @default(now())  
-  bookId     String    
+  bookId     String    @db.ObjectId
   book       Book      @relation(fields: [bookId], references: [id]) 
 }
